@@ -17,4 +17,8 @@ Install a plugin:
 
 ## Plugins
 
-- **kusari-dev** -- PRD-to-code pipeline. Usage: `/plan <prd-file>` to create an implementation plan, `/execute <step-file>` to execute a single step, `/review [step-file]` to review uncommitted changes, `/build <plan-folder-or-step>` to execute and review in an isolated worktree.
+- **kusari-dev**: PRD-to-code pipeline.
+  - `/plan <prd-file>` to create an implementation plan
+  - `/execute <step-file>` to execute a single step
+  - `/review [step-file]` to review uncommitted changes
+  - `/build <plan-folder-or-step>` to execute and review in an isolated worktree.
