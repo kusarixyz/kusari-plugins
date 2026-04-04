@@ -17,16 +17,5 @@ plugin-name/
 
 ## Development workflow
 
-Register the local marketplace (once):
-```
-/plugin marketplace add /Users/ryowa/Repos/kusari-plugins
-```
-
-Install a plugin for testing:
-```
-/plugin install <plugin-name>@kusari-plugins
-/reload-plugins
-```
-
 Validate plugin structure after changes:
 Use the plugin-validator agent.

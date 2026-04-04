@@ -25,17 +25,7 @@ Output for plans with 8 or fewer steps: a single `<prd-name>-implementation.md` 
 /execute <path-or-filename>
 ```
 
-Executes a single implementation plan step. Argument is a step file path or filename (e.g., `step-03-sqlite-database.md`). Run from the target project's root directory.
-
-For code steps:
-1. **test-writer** (cyan) -- Writes test files from the step's Test Plan, locking down the contract.
-2. **implementer** (green) -- Writes production code against the existing tests.
-3. Orchestrator runs the project's test command (auto-detected).
-4. On failure: implementer fixes production code (max 3 retries, test files never modified).
-For scaffolding steps:
-1. **implementer** (green) -- Writes the literal files specified in the step.
-2. Orchestrator runs Post-Setup Verification commands.
-3. On failure: implementer fixes (max 3 retries).
+Launches the `execute` agent to run a single implementation plan step. Argument is a step file path or filename (e.g., `step-03-sqlite-database.md`).
 
 ### /review
 
@@ -43,9 +33,9 @@ For scaffolding steps:
 /review [step-file]
 ```
 
-Reviews uncommitted changes before commit. Runs `git diff` and `git diff --cached` to collect changes, then launches parallel review agents to check for bugs, CLAUDE.md compliance, historical context, prior PR comments, and code comment adherence. Each finding is scored 0-100 and all issues are reported to the user regardless of score.
+Launches the `review` agent to review uncommitted changes. Runs parallel review agents to check for bugs, CLAUDE.md compliance, historical context, prior PR comments, and code comment adherence. Each finding is scored 0-100 and all issues are reported regardless of score.
 
-Optional argument: a step file path or filename. When provided, an additional agent checks the diff against the step specification for missing functionality, contradictions, and out-of-scope changes.
+Optional argument: a step file path or filename. When provided, an additional agent checks the diff against the step specification for missing functionality, contradictions, and out-of-scope changes. If omitted, infers the step file from a prior `/build` or `/execute` invocation in the conversation.
 
 ### /build
 
@@ -53,14 +43,24 @@ Optional argument: a step file path or filename. When provided, an additional ag
 /build <plan-folder-or-step-file>
 ```
 
-Executes implementation steps in an isolated git worktree with automatic code review after each step. Accepts either a plan folder (executes all steps sequentially) or a single step file.
+Executes implementation steps in an isolated git worktree (via `EnterWorktree`) with automatic code review after each step. Accepts either a plan folder (executes all steps sequentially) or a single step file.
 
 For each step:
-1. Executes the step (same logic as `/execute`).
-2. Reviews the changes (same logic as `/review` with step-spec compliance).
+1. Launches the `execute` agent.
+2. Launches the `review` agent (displays the full report table).
 3. Commits on success, stops the entire build on failure.
 
-After all steps complete, reports the worktree path/branch and a consolidated summary of all choices and assumptions made by agents, so the user can course-correct.
+After all steps complete, reports a consolidated summary of all choices and assumptions made by agents. The session remains in the worktree for inspection.
+
+### /finish
+
+```
+/finish [step-title]
+```
+
+Finalizes a build step. Stages and commits any uncommitted changes, exits the worktree, merges the build branch into the base branch, pushes to remote, and cleans up the worktree and branch. If the step belongs to a plan, marks it as done in `index.md` with strikethrough.
+
+Step title is optional. If omitted, inferred from a prior `/build` or `/execute` invocation or the current branch name.
 
 ### /evaluate
 
@@ -91,14 +91,17 @@ Each investor returns: verdict (invest/pass/conditional), conviction level, bull
 | Type | Name | Used by | Purpose |
 |------|------|---------|---------|
 | Command | plan | /plan | Orchestrates PRD-to-plan pipeline |
-| Command | execute | /execute | Orchestrates test-first step execution |
-| Command | review | /review | Orchestrates multi-agent diff review |
+| Command | execute | /execute | Thin wrapper, launches execute agent |
+| Command | review | /review | Thin wrapper, launches review agent |
 | Command | build | /build | Executes plan in worktree with per-step review |
+| Command | finish | /finish | Commits, merges, pushes, cleans up worktree |
+| Command | evaluate | /evaluate | Orchestrates investor panel evaluation |
 | Agent | prd-analyzer | /plan | Interrogates PRD for completeness |
 | Agent | implementation-writer | /plan | Produces detailed step files |
-| Agent | test-writer | /execute, /build | Writes tests before code |
-| Agent | implementer | /execute, /build | Writes production code or scaffolding |
-| Command | evaluate | /evaluate | Orchestrates investor panel evaluation |
+| Agent | execute | /execute, /build | Orchestrates test-first step execution |
+| Agent | review | /review, /build | Orchestrates multi-agent diff review |
+| Agent | test-writer | execute agent | Writes tests before code |
+| Agent | implementer | execute agent | Writes production code or scaffolding |
 | Agent | investor-graham | /evaluate | Paul Graham persona |
 | Agent | investor-thiel | /evaluate | Peter Thiel persona |
 | Agent | investor-altman | /evaluate | Sam Altman persona |
