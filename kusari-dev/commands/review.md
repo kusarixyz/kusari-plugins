@@ -13,7 +13,7 @@ The user provided: `$ARGUMENTS`
 
 This is an optional argument. If provided, it is either a file path or a filename pointing to an implementation step file.
 
-- If no argument is provided, scan the current conversation for a prior `/execute` invocation. If one is found, use the filename or path from that invocation as the step file. If multiple `/execute` calls exist, use the most recent one. If none are found, proceed without a step file (review uncommitted changes only). When a step file is inferred this way, print the resolved path to the user (e.g., "Inferred step file: path/to/step-01-foo.md") before continuing.
+- If no argument is provided, scan the current conversation for a prior `/build` or `/execute` invocation. If one is found, use the filename or path from the most recent invocation as the step file. If none are found, proceed without a step file (review uncommitted changes only). When a step file is inferred this way, print the resolved path to the user (e.g., "Inferred step file: path/to/step-01-foo.md") before continuing.
 
 - If it is a full path, read the file directly.
 - If it is just a filename, search the current working directory and its subdirectories to locate it. If multiple matches are found, ask the user which one they mean. If no matches are found, tell the user and stop.
@@ -21,8 +21,7 @@ This is an optional argument. If provided, it is either a file path or a filenam
 
 ## Setup
 
-1. Read `CLAUDE.md` from the current working directory if it exists. This contains project conventions.
-2. If a step file was provided and located, read it and its sibling `index.md`.
+1. If a step file was provided and located, read it and its sibling `index.md`.
 
 To do this, follow these steps precisely:
 

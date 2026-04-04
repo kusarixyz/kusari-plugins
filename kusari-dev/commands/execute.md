@@ -16,15 +16,13 @@ This is either a file path or a filename. If it is a full path, read the file di
 
 1. Read the step file.
 2. Find and read the sibling `index.md` in the same directory as the step file. This contains the implementation plan skeleton.
-3. Read `CLAUDE.md` from the current working directory if it exists. This contains project conventions.
-4. Detect the step type by checking for the classification tag in `index.md`: `[scaffolding]` or `[code]`. If neither tag is present, classify based on content: if the step has no Interfaces and no Functions/Methods sections (or they say "None"), it is scaffolding. Otherwise, it is code.
+3. Detect the step type by checking for the classification tag in `index.md`: `[scaffolding]` or `[code]`. If neither tag is present, classify based on content: if the step has no Interfaces and no Functions/Methods sections (or they say "None"), it is scaffolding. Otherwise, it is code.
 
 ## Execution: Scaffolding Steps
 
 1. Launch the `implementer` agent. Pass it:
    - The step file contents
    - The index file contents
-   - The CLAUDE.md contents (if present)
    - Step type: "scaffolding"
 
 2. After the implementer finishes, run the Post-Setup Verification commands listed in the step file. Run each command and check the output against the expected result described in the step.
@@ -38,12 +36,10 @@ This is either a file path or a filename. If it is a full path, read the file di
 1. Launch the `test-writer` agent. Pass it:
    - The step file contents
    - The index file contents
-   - The CLAUDE.md contents (if present)
 
 2. After test-writer finishes, launch the `implementer` agent. Pass it:
    - The step file contents
    - The index file contents
-   - The CLAUDE.md contents (if present)
    - Step type: "code"
 
 3. After the implementer finishes, detect the project's test runner and run the tests.

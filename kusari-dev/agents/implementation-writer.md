@@ -155,3 +155,4 @@ One paragraph describing what this plan covers.
 
 - **Code steps**: No code implementation. Interfaces and function signatures only. No pseudocode. The plan describes what gets built and how components connect, not how the code works internally.
 - **Scaffolding steps**: Provide literal file contents. No prose descriptions of config values.
+- Use the `Write` tool to create new files and the `Edit` tool to modify existing files. Never use `Bash` with cat, echo, heredocs, or redirects to write or append to files.
