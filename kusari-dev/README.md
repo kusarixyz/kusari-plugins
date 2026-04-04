@@ -43,7 +43,7 @@ For scaffolding steps:
 /review [step-file]
 ```
 
-Reviews uncommitted changes before commit. Runs `git diff` and `git diff --cached` to collect changes, then launches parallel review agents to check for bugs, CLAUDE.md compliance, historical context, prior PR comments, and code comment adherence. Each finding is scored 0-100; only issues scoring 80+ are reported.
+Reviews uncommitted changes before commit. Runs `git diff` and `git diff --cached` to collect changes, then launches parallel review agents to check for bugs, CLAUDE.md compliance, historical context, prior PR comments, and code comment adherence. Each finding is scored 0-100 and all issues are reported to the user regardless of score.
 
 Optional argument: a step file path or filename. When provided, an additional agent checks the diff against the step specification for missing functionality, contradictions, and out-of-scope changes.
 
@@ -62,6 +62,30 @@ For each step:
 
 After all steps complete, reports the worktree path/branch and a consolidated summary of all choices and assumptions made by agents, so the user can course-correct.
 
+### /evaluate
+
+```
+/evaluate <idea description or file path>
+```
+
+Evaluates a business idea, product plan, or feature through a panel of seven investor personas running in parallel. Each persona applies a distinct investment philosophy and returns a structured assessment.
+
+Argument is either inline text describing the idea or a path to a file containing it. Before launching the panel, the command checks for missing context (stage, constraints, target market) and asks in a single batch.
+
+Investor personas:
+
+| Persona | Core Lens |
+|---------|-----------|
+| Paul Graham | Founder quality, organic demand, simplicity |
+| Peter Thiel | Monopoly, contrarian truth, definite plan |
+| Sam Altman | Scale ceiling, ambition, timing |
+| Marc Andreessen | Market size, distribution, technology waves |
+| Naval Ravikant | Leverage, specific knowledge, permissionless scale |
+| Balaji Srinivasan | Regulatory risk, tech curves, global-first |
+| Patrick Collison | Infrastructure, developer experience, patience |
+
+Each investor returns: verdict (invest/pass/conditional), conviction level, bull case, bear case, key question, lens-specific question, and advice. The command then synthesizes a unified report with a verdicts table, consensus analysis, recurring risks, key questions, and an integrated assessment.
+
 ## Components
 
 | Type | Name | Used by | Purpose |
@@ -74,3 +98,11 @@ After all steps complete, reports the worktree path/branch and a consolidated su
 | Agent | implementation-writer | /plan | Produces detailed step files |
 | Agent | test-writer | /execute, /build | Writes tests before code |
 | Agent | implementer | /execute, /build | Writes production code or scaffolding |
+| Command | evaluate | /evaluate | Orchestrates investor panel evaluation |
+| Agent | investor-graham | /evaluate | Paul Graham persona |
+| Agent | investor-thiel | /evaluate | Peter Thiel persona |
+| Agent | investor-altman | /evaluate | Sam Altman persona |
+| Agent | investor-andreessen | /evaluate | Marc Andreessen persona |
+| Agent | investor-naval | /evaluate | Naval Ravikant persona |
+| Agent | investor-balaji | /evaluate | Balaji Srinivasan persona |
+| Agent | investor-collison | /evaluate | Patrick Collison persona |
