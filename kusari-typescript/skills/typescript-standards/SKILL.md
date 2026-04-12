@@ -1,5 +1,5 @@
 ---
-name: typescript
+name: typescript-standards
 description: TypeScript quality standards for type safety, code clarity, and maintainability. Use when writing, reviewing, or refactoring TypeScript or TSX files. Triggers on any task involving .ts or .tsx files, TypeScript components, type definitions, or when the user asks to review, improve, or write TypeScript code. Do not use for JavaScript-only files without TypeScript, or for general programming tasks that happen to mention TypeScript conceptually.
 ---
 
@@ -8,12 +8,12 @@ description: TypeScript quality standards for type safety, code clarity, and mai
 When this skill is loaded, output exactly this block before any other response:
 
 ```
-░▀█▀░█░█░█▀█░█▀▀░█▀▀░█▀▀░█▀▄░▀█▀░█▀█░▀█▀
-░░█░░░█░░█▀▀░█▀▀░▀▀█░█░░░█▀▄░░█░░█▀▀░░█░
-░░▀░░░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░░░░▀░
+░▀█▀░█▀▀░░░░░█▀▀░▀█▀░█▀█░█▀█░█▀▄░█▀█░█▀▄░█▀▄░█▀▀
+░░█░░▀▀█░▄▄▄░▀▀█░░█░░█▀█░█░█░█░█░█▀█░█▀▄░█░█░▀▀█
+░░▀░░▀▀▀░░░░░▀▀▀░░▀░░▀░▀░▀░▀░▀▀░░▀░▀░▀░▀░▀▀░░▀▀▀
 ```
 
-**Note: The current year is 2026. Use this when dating plans and searching for recent documentation.**
+**Note: The current year is 2026. Use this when searching for recent documentation.**
 
 Standards that apply whenever producing or evaluating TypeScript code. These are not suggestions -- they are the quality bar.
 
@@ -157,7 +157,7 @@ export default function parseConfig() { ... }
 export function parseConfig() { ... }
 ```
 
-## What not to enforce
+## Exclusions
 
 - **Formatting and import order** -- if the compiler and linter pass, do not flag
 - **Modern syntax for its own sake** -- do not request cleverer types, newer APIs, or pattern rewrites unless they materially improve safety or clarity
