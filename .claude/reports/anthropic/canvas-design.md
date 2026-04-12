@@ -1,11 +1,12 @@
+---
+repository: anthropics/skills
+branch: main
+skill-path: skills/canvas-design
+analyzed: 2026-04-11
+---
+
 # Skill Analysis: canvas-design
 
-**Repository:** anthropics/skills  
-**Branch:** main  
-**Skill path:** skills/canvas-design  
-**Analysis date:** 2026-04-11
-
----
 
 ## 1. Overview
 

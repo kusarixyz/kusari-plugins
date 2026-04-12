@@ -1,9 +1,12 @@
+---
+repository: anthropics/skills
+branch: main
+skill-path: skills/doc-coauthoring
+analyzed: 2026-04-11
+---
+
 # Skill Analysis: doc-coauthoring
 
-**Source:** `https://raw.githubusercontent.com/anthropics/skills/main/skills/doc-coauthoring/SKILL.md`
-**Analysis date:** 2026-04-11
-
----
 
 ## 1. Overview
 

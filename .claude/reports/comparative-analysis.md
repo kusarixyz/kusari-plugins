@@ -1,10 +1,16 @@
+---
+type: comparative-analysis
+subjects:
+  - repository: anthropics/skills
+    branch: main
+    skills-analyzed: 17
+  - repository: EveryInc/compound-engineering-plugin
+    branch: main
+    skills-analyzed: 10 of 40
+analyzed: 2026-04-11
+---
+
 # Comparative Analysis: Two Approaches to Skill Design
-
-**Subjects:**
-- **Anthropic Skills** (anthropics/skills) -- 17 skills analyzed
-- **Compound Engineering** (EveryInc/compound-engineering-plugin) -- 10 of 40 skills analyzed
-
-**Date:** 2026-04-11
 
 ---
 

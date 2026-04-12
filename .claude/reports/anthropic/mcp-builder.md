@@ -1,11 +1,12 @@
+---
+repository: anthropics/skills
+branch: main
+skill-path: skills/mcp-builder
+analyzed: 2026-04-11
+---
+
 # Skill Analysis: mcp-builder
 
-**Repository:** anthropics/skills  
-**Branch:** main  
-**Path:** skills/mcp-builder  
-**Analysis Date:** 2026-04-11
-
----
 
 ## 1. Overview
 

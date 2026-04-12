@@ -1,11 +1,12 @@
+---
+repository: EveryInc/compound-engineering-plugin
+branch: main
+skill-path: plugins/compound-engineering/skills/agent-native-architecture
+analyzed: 2026-04-11
+---
+
 # Skill Analysis: agent-native-architecture
 
-**Repository:** EveryInc/compound-engineering-plugin
-**Branch:** main
-**Skill path:** plugins/compound-engineering/skills/agent-native-architecture
-**Analysis date:** 2026-04-11
-
----
 
 ## 1. Overview
 

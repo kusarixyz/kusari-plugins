@@ -1,11 +1,12 @@
+---
+repository: EveryInc/compound-engineering-plugin
+branch: main
+skill-path: plugins/compound-engineering/skills/ce-demo-reel
+analyzed: 2026-04-11
+---
+
 # Skill Analysis: ce-demo-reel
 
-**Repository:** EveryInc/compound-engineering-plugin
-**Branch:** main
-**Skill path:** plugins/compound-engineering/skills/ce-demo-reel
-**Analysis date:** 2026-04-11
-
----
 
 ## 1. Overview
 

@@ -1,11 +1,12 @@
+---
+repository: anthropics/skills
+branch: main
+skill-path: skills/internal-comms
+analyzed: 2026-04-11
+---
+
 # Skill Analysis: internal-comms
 
-**Repository:** anthropics/skills  
-**Branch:** main  
-**Path:** skills/internal-comms  
-**Analysis date:** 2026-04-11
-
----
 
 ## 1. Overview
 

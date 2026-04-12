@@ -1,9 +1,11 @@
-# Aggregate Skill Analysis: anthropics/skills
+---
+repository: anthropics/skills
+branch: main
+skills-analyzed: 17
+analyzed: 2026-04-11
+---
 
-**Repository:** anthropics/skills  
-**Branch:** main  
-**Skills analyzed:** 17  
-**Analysis date:** 2026-04-11
+# Aggregate Skill Analysis: anthropics/skills
 
 ---
 

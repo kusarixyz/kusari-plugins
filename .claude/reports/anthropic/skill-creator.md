@@ -1,11 +1,12 @@
+---
+repository: anthropics/skills
+branch: main
+skill-path: skills/skill-creator
+analyzed: 2026-04-11
+---
+
 # Skill Analysis: skill-creator
 
-**Repository:** anthropics/skills  
-**Branch:** main  
-**Path:** skills/skill-creator/SKILL.md  
-**Analysis date:** 2026-04-11
-
----
 
 ## 1. Overview
 

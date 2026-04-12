@@ -1,11 +1,12 @@
+---
+repository: anthropics/skills
+branch: main
+skill-path: skills/web-artifacts-builder
+analyzed: 2026-04-11
+---
+
 # Skill Analysis: web-artifacts-builder
 
-**Repository**: anthropics/skills  
-**Branch**: main  
-**Skill path**: skills/web-artifacts-builder  
-**Analysis date**: 2026-04-11
-
----
 
 ## 1. Overview
 

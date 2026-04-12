@@ -1,11 +1,12 @@
+---
+repository: anthropics/skills
+branch: main
+skill-path: skills/frontend-design
+analyzed: 2026-04-11
+---
+
 # Skill Analysis: frontend-design
 
-**Repository:** anthropics/skills  
-**Branch:** main  
-**Path:** skills/frontend-design  
-**Analysis date:** 2026-04-11
-
----
 
 ## 1. Overview
 

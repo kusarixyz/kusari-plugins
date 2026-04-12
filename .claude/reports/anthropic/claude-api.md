@@ -1,11 +1,12 @@
+---
+repository: anthropics/skills
+branch: main
+skill-path: skills/claude-api
+analyzed: 2026-04-11
+---
+
 # Skill Analysis: claude-api
 
-**Repository:** anthropics/skills  
-**Branch:** main  
-**Skill path:** skills/claude-api  
-**Analysis date:** 2026-04-11
-
----
 
 ## 1. Overview
 

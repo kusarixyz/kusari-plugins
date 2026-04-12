@@ -1,9 +1,12 @@
+---
+repository: anthropics/skills
+branch: main
+skill-path: skills/docx
+analyzed: 2026-04-11
+---
+
 # Skill Analysis: docx
 
-**Source:** `anthropics/skills` @ `main` — `skills/docx/`
-**Analysis date:** 2026-04-11
-
----
 
 ## 1. Overview
 

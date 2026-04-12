@@ -1,11 +1,12 @@
+---
+repository: anthropics/skills
+branch: main
+skill-path: skills/slack-gif-creator
+analyzed: 2026-04-11
+---
+
 # Skill Analysis: slack-gif-creator
 
-**Repository:** anthropics/skills  
-**Branch:** main  
-**Skill path:** skills/slack-gif-creator  
-**Analysis date:** 2026-04-11
-
----
 
 ## 1. Overview
 

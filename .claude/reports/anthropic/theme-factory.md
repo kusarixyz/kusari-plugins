@@ -1,11 +1,12 @@
+---
+repository: anthropics/skills
+branch: main
+skill-path: skills/theme-factory
+analyzed: 2026-04-11
+---
+
 # Skill Analysis: theme-factory
 
-**Repository:** anthropics/skills
-**Branch:** main
-**Skill path:** skills/theme-factory
-**Analysis date:** 2026-04-11
-
----
 
 ## 1. Overview
 

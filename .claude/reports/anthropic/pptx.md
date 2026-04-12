@@ -1,9 +1,12 @@
+---
+repository: anthropics/skills
+branch: main
+skill-path: skills/pptx
+analyzed: 2026-04-11
+---
+
 # Skill Analysis: pptx
 
-**Source:** `anthropics/skills` @ `main` — `skills/pptx/`
-**Analysis date:** 2026-04-11
-
----
 
 ## 1. Overview
 

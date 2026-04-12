@@ -1,4 +1,11 @@
-# algorithmic-art
+---
+repository: anthropics/skills
+branch: main
+skill-path: skills/algorithmic-art
+analyzed: 2026-04-11
+---
+
+# Skill Analysis: algorithmic-art
 
 ## 1. Overview
 

@@ -1,8 +1,7 @@
 ---
-skill: ce:plan
-source: EveryInc/compound-engineering-plugin
+repository: EveryInc/compound-engineering-plugin
 branch: main
-path: plugins/compound-engineering/skills/ce-plan
+skill-path: plugins/compound-engineering/skills/ce-plan
 analyzed: 2026-04-11
 ---
 

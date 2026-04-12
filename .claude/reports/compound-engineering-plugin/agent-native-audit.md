@@ -1,11 +1,12 @@
+---
+repository: EveryInc/compound-engineering-plugin
+branch: main
+skill-path: plugins/compound-engineering/skills/agent-native-audit
+analyzed: 2026-04-11
+---
+
 # Skill Analysis: agent-native-audit
 
-**Repository:** EveryInc/compound-engineering-plugin
-**Branch:** main
-**Skill path:** plugins/compound-engineering/skills/agent-native-audit
-**Analysis date:** 2026-04-11
-
----
 
 ## 1. Overview
 

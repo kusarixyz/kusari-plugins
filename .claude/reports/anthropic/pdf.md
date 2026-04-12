@@ -1,8 +1,12 @@
+---
+repository: anthropics/skills
+branch: main
+skill-path: skills/pdf
+analyzed: 2026-04-11
+---
+
 # Skill Analysis: pdf
 
-**Repository:** anthropics/skills | **Branch:** main | **Path:** skills/pdf
-
----
 
 ## 1. Overview
 

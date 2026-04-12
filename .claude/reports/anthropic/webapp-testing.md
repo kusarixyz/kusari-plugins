@@ -1,11 +1,12 @@
+---
+repository: anthropics/skills
+branch: main
+skill-path: skills/webapp-testing
+analyzed: 2026-04-11
+---
+
 # Skill Analysis: webapp-testing
 
-**Repository:** anthropics/skills  
-**Branch:** main  
-**Path:** skills/webapp-testing  
-**Analysis date:** 2026-04-11
-
----
 
 ## 1. Overview
 

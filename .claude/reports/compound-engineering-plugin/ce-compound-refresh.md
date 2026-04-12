@@ -1,11 +1,12 @@
+---
+repository: EveryInc/compound-engineering-plugin
+branch: main
+skill-path: plugins/compound-engineering/skills/ce-compound-refresh
+analyzed: 2026-04-11
+---
+
 # Skill Analysis: ce-compound-refresh
 
-**Repository:** EveryInc/compound-engineering-plugin
-**Branch:** main
-**Skill path:** plugins/compound-engineering/skills/ce-compound-refresh
-**Analysis date:** 2026-04-11
-
----
 
 ## 1. Overview
 

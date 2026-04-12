@@ -122,7 +122,20 @@ Any additional patterns worth noting:
 
 ### Output format
 
-Return the full report as a single markdown document. Use the skill name as the H1 title. Do not omit any section even if empty -- explicitly state "None" or "N/A".
+Return the full report as a single markdown document. Begin with a YAML frontmatter block containing metadata, followed by the H1 title (the skill name), followed by the analysis sections. Do not omit any section even if empty -- explicitly state "None" or "N/A".
+
+The frontmatter must use these exact keys:
+
+```yaml
+---
+repository: {owner}/{repo}
+branch: {branch}
+skill-path: {path_to_skill}
+analyzed: {YYYY-MM-DD}
+---
+```
+
+Do not duplicate this metadata as prose below the frontmatter.
 
 ---
 
@@ -156,6 +169,17 @@ Write the summary to:
 
 ```
 .claude/reports/{repo_name}/_summary.md
+```
+
+The summary must also begin with a YAML frontmatter block:
+
+```yaml
+---
+repository: {owner}/{repo}
+branch: {branch}
+skills-analyzed: {count}
+analyzed: {YYYY-MM-DD}
+---
 ```
 
 ## Completion

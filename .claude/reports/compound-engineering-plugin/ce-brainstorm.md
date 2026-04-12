@@ -1,7 +1,7 @@
 ---
-skill: ce:brainstorm
 repository: EveryInc/compound-engineering-plugin
 branch: main
+skill-path: plugins/compound-engineering/skills/ce-brainstorm
 analyzed: 2026-04-11
 ---
 

@@ -1,8 +1,7 @@
 ---
-skill: ce-debug
-repo: EveryInc/compound-engineering-plugin
+repository: EveryInc/compound-engineering-plugin
 branch: main
-path: plugins/compound-engineering/skills/ce-debug
+skill-path: plugins/compound-engineering/skills/ce-debug
 analyzed: 2026-04-11
 ---
 

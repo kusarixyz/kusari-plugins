@@ -1,11 +1,12 @@
+---
+repository: EveryInc/compound-engineering-plugin
+branch: main
+skill-path: plugins/compound-engineering/skills/andrew-kane-gem-writer
+analyzed: 2026-04-11
+---
+
 # Skill Analysis: andrew-kane-gem-writer
 
-**Repository:** EveryInc/compound-engineering-plugin
-**Branch:** main
-**Skill path:** plugins/compound-engineering/skills/andrew-kane-gem-writer
-**Analysis date:** 2026-04-11
-
----
 
 ## 1. Overview
 

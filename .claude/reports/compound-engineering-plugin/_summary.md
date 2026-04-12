@@ -1,9 +1,11 @@
-# Aggregate Skill Analysis: EveryInc/compound-engineering-plugin (First 10)
+---
+repository: EveryInc/compound-engineering-plugin
+branch: main
+skills-analyzed: 10 of 40
+analyzed: 2026-04-11
+---
 
-**Repository:** EveryInc/compound-engineering-plugin  
-**Branch:** main  
-**Skills analyzed:** 10 of 40  
-**Analysis date:** 2026-04-11
+# Aggregate Skill Analysis: EveryInc/compound-engineering-plugin (First 10)
 
 ---
 

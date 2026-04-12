@@ -1,6 +1,5 @@
 ---
-skill: ce:ideate
-repo: EveryInc/compound-engineering-plugin
+repository: EveryInc/compound-engineering-plugin
 branch: main
 skill-path: plugins/compound-engineering/skills/ce-ideate
 analyzed: 2026-04-11
