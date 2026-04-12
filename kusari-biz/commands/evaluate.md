@@ -1,8 +1,15 @@
 ---
 description: Evaluate a business idea, product plan, or feature through a panel of investor personas
 argument-hint: <idea description or file path>
-disable-model-invocation: false
 ---
+
+When this command is invoked, output exactly this block before any other response:
+
+```
+░█░█░█░█░█▀▀░█▀█░█▀▄░▀█▀░░░░░█▀▄░▀█▀░▀▀█
+░█▀▄░█░█░▀▀█░█▀█░█▀▄░░█░░▄▄▄░█▀▄░░█░░▄▀░
+░▀░▀░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀▀░░░░░▀▀░░▀▀▀░▀▀▀
+```
 
 Evaluate the user's idea through a panel of seven investor personas, each running as a parallel subagent.
 
