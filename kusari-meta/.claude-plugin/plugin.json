@@ -1,0 +1,8 @@
+{
+  "name": "kusari-meta",
+  "version": "0.1.0",
+  "description": "Meta-tooling for authoring the rest of the plugin ecosystem: scaffolds new skills, agents, and MCP servers, and evaluates skills through iterative benchmarks.",
+  "author": {
+    "name": "ryowa"
+  }
+}

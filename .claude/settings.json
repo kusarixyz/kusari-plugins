@@ -7,5 +7,12 @@
       "Read(./.env.*)"
     ]
   },
-  "enabledPlugins": {}
+  "extraKnownMarketplaces": {
+    "kusari-plugins": {
+      "source": { "source": "directory", "path": "." }
+    }
+  },
+  "enabledPlugins": {
+    "kusari-meta@kusari-plugins": true
+  }
 }

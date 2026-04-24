@@ -10,6 +10,11 @@ Claude Code plugin collection.
 
 ## Installation
 
+Clone the repo:
+```
+git clone https://github.com/ryowa/kusari-plugins.git
+```
+
 Register the marketplace:
 ```
 /plugin marketplace add /path/to/repository/kusari-plugins
@@ -23,26 +28,19 @@ Install a plugin:
 
 ## Plugins
 
-### kusari-dev
+### kusari-meta
 
-PRD-to-code pipeline. Plan implementation from a PRD, execute steps test-first in an isolated worktree, review diffs, then merge.
+Meta-tooling for authoring the rest of the plugin ecosystem: scaffolds new skills, agents, and MCP servers, and evaluates skills through iterative benchmarks.
 
-- `/plan <prd-file>` analyze PRD and generate step files
-- `/build <plan-folder-or-step>` execute steps in a worktree with per-step review
-- `/execute <step-file>` run a single step
-- `/review [step-file]` multi-agent review of uncommitted changes
-- `/finish [step-title]` commit, merge, push, clean up worktree
+- `create-skill` guide creation of well-structured plugin skills
+- `create-agent` guide creation of plugin agents (subagents)
+- `create-mcp` build MCP servers from use case through deployment
+- `evaluate-skill` test, measure, and iteratively improve skills
 
-### kusari-biz
+## Working on this repo
 
-Business evaluation via a panel of investor personas.
+`.claude/settings.json` registers the repo itself as a local marketplace and auto-enables `kusari-meta`, so the meta skills are available while authoring new plugins here. After cloning, trust the folder when Claude Code prompts, then invoke skills as `/kusari-meta:create-skill`, `/kusari-meta:create-agent`, `/kusari-meta:create-mcp`, `/kusari-meta:evaluate-skill`.
 
-- `/evaluate <idea-or-file>` run seven investor personas in parallel and synthesize a consensus report
+## License
 
-### kusari-typescript
-
-TypeScript skills loaded on demand when editing TS/TSX.
-
-- `typescript-standards` type safety, clarity, maintainability
-- `typescript-architecture` structural review, coupling, abstractions
-- `typescript-tests` test design and quality
+MIT. See [LICENSE](LICENSE).
