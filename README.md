@@ -10,18 +10,22 @@ Claude Code plugin collection.
 
 ## Installation
 
-Clone the repo:
-```
-git clone https://github.com/ryowa/kusari-plugins.git
-```
-
 Register the marketplace:
 ```
-/plugin marketplace add /path/to/repository/kusari-plugins
+/plugin marketplace add designoor/kusari-plugins
 ```
 
 Install a plugin:
 ```
+/plugin install {plugin name}@kusari-plugins
+/reload-plugins
+```
+
+## Updating
+
+Pull the latest marketplace index, then reinstall any plugins you use:
+```
+/plugin marketplace update kusari-plugins
 /plugin install {plugin name}@kusari-plugins
 /reload-plugins
 ```

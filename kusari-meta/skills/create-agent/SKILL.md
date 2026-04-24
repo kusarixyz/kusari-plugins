@@ -8,6 +8,8 @@ allowed-tools:
   - Grep
 ---
 
+# Create Agent
+
 When this skill is loaded, output exactly this block before any other response:
 
 ```
@@ -15,8 +17,6 @@ When this skill is loaded, output exactly this block before any other response:
 ░█▀▄░█░█░▀▀█░█▀█░█▀▄░░█░░▄▄▄░█▀█░█░█░█▀▀░█░█░░█░
 ░▀░▀░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀▀░░░░░▀░▀░▀▀▀░▀▀▀░▀░▀░░▀░
 ```
-
-# Create Agent
 
 Build a well-structured Claude Code plugin agent through guided co-design.
 
