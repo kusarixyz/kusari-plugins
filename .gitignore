@@ -84,4 +84,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # Claude related items
-evaluations
+evaluations/**/iteration-[a-z0-9-]*
