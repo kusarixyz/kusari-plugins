@@ -45,7 +45,7 @@ Record both in `eval_metadata.json` and the report metadata. If the user skips e
 
 ### 0.2 Detect existing workspace
 
-The evaluation workspace lives at `<project-root>/.claude/evaluation/<skill-name>/`. Look for this directory. If it exists, check for `evals.json` and `iteration-*/` subdirectories.
+The evaluation workspace lives at `<project-root>/evaluations/<skill-name>/`. Look for this directory. If it exists, check for `evals.json` and `iteration-*/` subdirectories.
 
 | State | Signal |
 |---|---|
@@ -112,11 +112,19 @@ Bad assertions:
 - "Output looks professional" (subjective)
 - "Code is well-structured" (unmeasurable)
 
-### 1.4 Save test cases
+### 1.4 Store fixture files
 
-Check if `<project-root>/.claude/evaluation/<skill-name>/evals.json` already exists. If it does, read it and present the existing test cases to the user. Ask whether to use them as-is, modify them, or generate new ones.
+If a test prompt references input files (source code to review, configs to clean up, etc.), the fixtures MUST live at `<project-root>/evaluations/<skill-name>/references/`, next to evals.json. Never use `/tmp`, the user's home directory, or any other ad-hoc location: those paths are machine-specific, get wiped on reboot, and break reproducibility across iterations and contributors.
 
-If no evals.json exists, save to `<project-root>/.claude/evaluation/<skill-name>/evals.json`:
+Create the `references/` directory if it does not exist. Mirror any logical grouping inside it (e.g. `references/imports/cart.ts`, `references/deletion/utils.ts`). Write the fixture file contents.
+
+In evals.json, refer to fixtures with repo-relative paths starting at `evaluations/<skill-name>/references/...`. Use the same relative path in both the `prompt` text and the `files` array, so the eval subagent reads what the user-facing prompt describes. Eval subagents inherit the project-root cwd, so relative paths resolve correctly.
+
+### 1.5 Save test cases
+
+Check if `<project-root>/evaluations/<skill-name>/evals.json` already exists. If it does, read it and present the existing test cases to the user. Ask whether to use them as-is, modify them, or generate new ones.
+
+If no evals.json exists, save to `<project-root>/evaluations/<skill-name>/evals.json`:
 
 ```json
 {
@@ -124,13 +132,13 @@ If no evals.json exists, save to `<project-root>/.claude/evaluation/<skill-name>
   "evals": [
     {
       "id": 1,
-      "prompt": "User's task prompt",
+      "prompt": "Review this file: evaluations/example-skill/references/sample.ts",
       "expected_output": "Description of expected result",
       "assertions": [
         "Output file exists at the specified path",
         "File contains at least 3 sections"
       ],
-      "files": []
+      "files": ["evaluations/example-skill/references/sample.ts"]
     }
   ]
 }
@@ -142,7 +150,9 @@ Present the test prompts and assertions to the user for review before proceeding
 
 ### 2.1 Create workspace
 
-Create `<project-root>/.claude/evaluation/<skill-name>/iteration-<N>/` for the current iteration. The evals.json lives at the skill-name level; iteration directories are nested under it.
+Create `<project-root>/evaluations/<skill-name>/iteration-<N>-<model>-<effort>/` for the current iteration. If the user skipped effort, omit that segment: `iteration-<N>-<model>/`. Sanitize model and effort to lowercase with hyphens (e.g. `claude-opus-4-7`, `medium`). The evals.json lives at the skill-name level; iteration directories are nested under it.
+
+To pick `<N>`, scan existing `iteration-*/` directories, parse the integer immediately after `iteration-`, and use max+1 (or 1 if none exist).
 
 ### 2.2 Spawn all runs in one turn
 
@@ -154,7 +164,7 @@ Execute this task:
 - Skill path: <path-to-skill>
 - Task: <eval prompt>
 - Input files: <eval files if any>
-- Save outputs to: <evaluation-dir>/iteration-<N>/eval-<ID>/with_skill/run-1/outputs/
+- Save outputs to: <iteration-dir>/eval-<ID>/with_skill/run-1/outputs/
 ```
 
 **Baseline run** (for capability uplift skills):
@@ -162,7 +172,7 @@ Execute this task:
 Execute this task (no skill):
 - Task: <eval prompt>
 - Input files: <eval files if any>
-- Save outputs to: <evaluation-dir>/iteration-<N>/eval-<ID>/without_skill/run-1/outputs/
+- Save outputs to: <iteration-dir>/eval-<ID>/without_skill/run-1/outputs/
 ```
 
 The `run-1/` subdirectory inside each config is required. The aggregation script scans for `run-*` directories to collect results. For multiple runs of the same eval, use `run-2/`, `run-3/`, etc.
@@ -210,7 +220,7 @@ The `grading.json` expectations array must use the fields `text`, `passed`, and 
 
 Run the aggregation script:
 ```bash
-python -m scripts.aggregate_benchmark <workspace>/iteration-<N> --skill-name <name>
+python -m scripts.aggregate_benchmark <iteration-dir> --skill-name <name>
 ```
 
 This produces `benchmark.json` with:
@@ -265,7 +275,7 @@ Apply changes to the skill. Guidelines:
 
 ### 5.3 Rerun
 
-After improving the skill, return to Phase 2. Run all test cases into a new `iteration-<N+1>/` directory.
+After improving the skill, return to Phase 2. Run all test cases into a new iteration directory with `<N>` incremented (model and effort segments may differ if the user selects different ones for this run).
 
 For capability uplift skills, the baseline is always without-skill. For encoded preference skills, use judgment: baseline against the previous iteration or the original version.
 
