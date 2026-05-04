@@ -8,6 +8,7 @@ Adapted from anthropics/skills skill-creator.
 """
 
 import argparse
+import atexit
 import json
 import os
 import select
@@ -52,16 +53,22 @@ def run_single_query(
 
     try:
         project_commands_dir.mkdir(parents=True, exist_ok=True)
-        indented_desc = "\n  ".join(skill_description.split("\n"))
+        # Use literal-block scalar (|) with safe indentation. Replace any YAML
+        # end-of-document marker so the description cannot break out of the
+        # scalar and inject additional frontmatter fields.
+        safe_desc = skill_description.replace("---", "- - -").replace("...", ". . .")
+        indented_desc = "\n  ".join(safe_desc.split("\n"))
         command_content = (
             f"---\n"
             f"description: |\n"
             f"  {indented_desc}\n"
             f"---\n\n"
             f"# {skill_name}\n\n"
-            f"This skill handles: {skill_description}\n"
+            f"This skill handles: {safe_desc}\n"
         )
         command_file.write_text(command_content)
+        # Register cleanup so orphan files are removed even on SIGTERM/crash.
+        atexit.register(lambda: command_file.unlink(missing_ok=True))
 
         cmd = [
             "claude",
