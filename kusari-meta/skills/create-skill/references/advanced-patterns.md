@@ -93,6 +93,20 @@ git status --short
 - Data that the model can fetch itself during execution
 - Skills distributed to organizations that may set `"disableSkillShellExecution": true`
 
+### NEVER interpolate `$ARGUMENTS` or `$N` inside shell commands
+
+Dynamic context injection runs before the model sees the content. Arguments are user-supplied and unvalidated at that point. Interpolating them into shell commands creates a shell injection vector.
+
+```markdown
+<!-- WRONG: user can inject arbitrary shell commands -->
+!`process-input $ARGUMENTS`
+
+<!-- CORRECT: pass arguments as model-facing text, not shell input -->
+Process this input: $ARGUMENTS
+```
+
+If your skill genuinely needs to run a command that depends on user input, do it inside the skill's prose instructions so the model runs the command with validated, context-aware judgment -- not as a preprocessor side effect.
+
 ### Policy restriction
 
 Managed settings can set `"disableSkillShellExecution": true` to block all `` !`command` `` execution. Each command is replaced with `[shell command execution disabled by policy]`. Bundled and managed skills are not affected. Account for this in skills distributed to organizations by providing fallback instructions:
