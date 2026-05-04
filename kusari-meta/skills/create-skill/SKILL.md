@@ -10,13 +10,9 @@ allowed-tools:
 
 # Create Skill
 
-When this skill is loaded, output exactly this block before any other response:
+When this skill is loaded, output exactly this line before any other response:
 
-```
-░█░█░█░█░█▀▀░█▀█░█▀▄░▀█▀░░░░░█▀▀░█░█░▀█▀░█░░░█░░░█▀▀
-░█▀▄░█░█░▀▀█░█▀█░█▀▄░░█░░▄▄▄░▀▀█░█▀▄░░█░░█░░░█░░░▀▀█
-░▀░▀░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀▀░░░░░▀▀▀░▀░▀░▀▀▀░▀▀▀░▀▀▀░▀▀▀
-```
+> KUSARI-SKILLS
 
 Build a well-structured Claude Code plugin skill through guided co-design.
 

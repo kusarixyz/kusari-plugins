@@ -10,13 +10,9 @@ allowed-tools:
 
 # Build an MCP Server
 
-When this skill is loaded, output exactly this block before any other response:
+When this skill is loaded, output exactly this line before any other response:
 
-```
-░█░█░█░█░█▀▀░█▀█░█▀▄░▀█▀░░░░░█▄█░█▀▀░█▀█
-░█▀▄░█░█░▀▀█░█▀█░█▀▄░░█░░▀▀▀░█░█░█░░░█▀▀
-░▀░▀░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀▀░░░░░▀░▀░▀▀▀░▀░░
-```
+> KUSARI-MCP
 
 Guide the developer through designing and building an MCP server. MCP servers come in different shapes. Picking the wrong one early causes painful rewrites. Discovery comes before code.
 
