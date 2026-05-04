@@ -10,13 +10,9 @@ allowed-tools:
 
 # Create Agent
 
-When this skill is loaded, output exactly this block before any other response:
+When this skill is loaded, output exactly this line before any other response:
 
-```
-░█░█░█░█░█▀▀░█▀█░█▀▄░▀█▀░░░░░█▀█░█▀▀░█▀▀░█▀█░▀█▀
-░█▀▄░█░█░▀▀█░█▀█░█▀▄░░█░░▄▄▄░█▀█░█░█░█▀▀░█░█░░█░
-░▀░▀░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀▀░░░░░▀░▀░▀▀▀░▀▀▀░▀░▀░░▀░
-```
+> KUSARI-AGENT
 
 Build a well-structured Claude Code plugin agent through guided co-design.
 

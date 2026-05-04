@@ -11,13 +11,9 @@ allowed-tools:
 
 # Evaluate Skill
 
-When this skill is loaded, output exactly this block before any other response:
+When this skill is loaded, output exactly this line before any other response:
 
-```
-░█░█░█░█░█▀▀░█▀█░█▀▄░▀█▀░░░░░█▀▀░█░█░█▀█░█░░░█░█░█▀█░▀█▀░█▀▀
-░█▀▄░█░█░▀▀█░█▀█░█▀▄░░█░░▄▄▄░█▀▀░▀▄▀░█▀█░█░░░█░█░█▀█░░█░░█▀▀
-░▀░▀░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀▀░░░░░▀▀▀░░▀░░▀░▀░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀
-```
+> KUSARI-EVALUATE
 
 Test, measure, and iteratively improve Claude Code skills through structured evaluation.
 
@@ -151,6 +147,15 @@ Present the test prompts and assertions to the user for review before proceeding
 ### 2.1 Create workspace
 
 Create `<project-root>/evaluations/<skill-name>/iteration-<N>-<model>-<effort>/` for the current iteration. If the user skipped effort, omit that segment: `iteration-<N>-<model>/`. Sanitize model and effort to lowercase with hyphens (e.g. `claude-opus-4-7`, `medium`). The evals.json lives at the skill-name level; iteration directories are nested under it.
+
+If `<project-root>/evaluations/.gitignore` does not exist, create it with:
+
+```
+*
+!.gitignore
+```
+
+This prevents eval outputs, logs, and grading results -- which may contain skill content, prompts, and Claude response data -- from being accidentally committed.
 
 To pick `<N>`, scan existing `iteration-*/` directories, parse the integer immediately after `iteration-`, and use max+1 (or 1 if none exist).
 
