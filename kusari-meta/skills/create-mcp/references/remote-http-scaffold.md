@@ -46,7 +46,7 @@ import { z } from "zod";
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: true,  // validate in production
+  origin: ["https://your-app.com"],  // replace with your actual domain(s); "true" allows all origins and must not be used in production
   exposedHeaders: ["Mcp-Session-Id"],
 }));
 
@@ -171,7 +171,8 @@ async def example_tool(query: str, limit: int = 10) -> dict:
 
 
 if __name__ == "__main__":
-    mcp.run(transport="streamable-http", host="0.0.0.0", port=3000)
+    # Bind to 127.0.0.1 locally; use a reverse proxy (nginx, Cloudflare) in production
+    mcp.run(transport="streamable-http", host="127.0.0.1", port=3000)
 ```
 
 ---
@@ -205,7 +206,7 @@ For browser-based clients, expose the `Mcp-Session-Id` header:
 
 ```typescript
 app.use(cors({
-  origin: true,  // restrict to known origins in production
+  origin: ["https://your-app.com"],  // replace with your actual domain(s); "true" allows all origins and must not be used in production
   exposedHeaders: ["Mcp-Session-Id"],
 }));
 ```
