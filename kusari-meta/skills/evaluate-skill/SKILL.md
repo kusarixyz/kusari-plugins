@@ -37,7 +37,17 @@ Ask the user which model and effort level to use for the evaluation runs:
 
 Record both in `eval_metadata.json` and the report metadata. If the user skips effort, omit it (use the model's default).
 
-**Every Agent tool call in Phase 2 (eval runners) and Phase 3 (grader, analyzer) MUST pass `model: "<selected-model>"` explicitly.** Subagents do not inherit the parent session's model. If you omit the model parameter, the subagent runs on the parent's model, defeating the purpose of model selection.
+**Every Agent tool call in Phase 2 (eval runners) and Phase 3 (grader, analyzer) MUST pass `model:` explicitly.** Subagents do not inherit the parent session's model. If you omit the model parameter, the subagent runs on the parent's model, defeating the purpose of model selection.
+
+**Model assignments per role (do not deviate without telling the user):**
+
+| Role | Model | Effort | Rationale |
+|---|---|---|---|
+| Eval runner (Phase 2) | The model selected by the user | The effort selected by the user | This is the system under test |
+| Grader (Phase 3.1) | `sonnet` | `high` | Same-family-default-effort grading produces optimistic false passes on precision-shaped "does NOT flag X" assertions. Tier the grader up so it actually unpacks the assertion text. |
+| Analyzer (Phase 3.3) | `opus` | default | Single call per iteration that synthesizes across all grading.json files plus benchmark.json. Reasoning quality matters; cost overhead is one call. |
+
+Override only when the user explicitly says so (e.g. "grade with opus", "use haiku for grading to save cost"). If overridden, record the override in `analysis.json` metadata so future iterations can compare.
 
 ### 0.2 Detect existing workspace
 
