@@ -83,5 +83,13 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+
 # Claude related items
 evaluations/**/iteration-[a-z0-9-]*
+evaluations/**/iter-[a-z0-9-]*
