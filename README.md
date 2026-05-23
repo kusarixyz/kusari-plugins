@@ -6,7 +6,7 @@
 
 # kusari-plugins
 
-Claude Code plugin collection.
+A Claude Code plugin collection. The current release focuses on `kusari-meta`, the authoring layer: scaffolding for skills, agents, and MCP servers, and an evaluation framework for measuring and iterating on them.
 
 ## Installation
 
