@@ -6,7 +6,7 @@
 
 # kusari-plugins
 
-A Claude Code plugin collection. The current release focuses on `kusari-meta`, the authoring layer: scaffolding for skills, agents, and MCP servers, and an evaluation framework for measuring and iterating on them.
+A Claude Code plugin collection. The current release focuses on `kusari-meta`, the authoring layer: scaffolding for skills, agents, and MCP servers.
 
 ## Installation
 
@@ -34,12 +34,11 @@ Pull the latest marketplace index, then reinstall any plugins you use:
 
 ### kusari-meta
 
-Meta-tooling for authoring the rest of the plugin ecosystem: scaffolds new skills, agents, and MCP servers, and evaluates skills through iterative benchmarks.
+Meta-tooling for authoring the rest of the plugin ecosystem: scaffolds new skills, agents, and MCP servers.
 
 - `create-skill` guide creation of well-structured plugin skills
 - `create-agent` guide creation of plugin agents (subagents)
 - `create-mcp` build MCP servers from use case through deployment
-- `evaluate-skill` test, measure, and iteratively improve skills
 
 ## Working on this repo
 
