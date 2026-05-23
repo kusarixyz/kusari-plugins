@@ -1,6 +1,7 @@
 ---
 name: create-agent
-description: "Guide the creation of well-structured Claude Code plugin agents (subagents). Use when the user wants to create a new agent, design a subagent, write agent markdown, define agent frontmatter, or asks how to structure an agent for a plugin. Also use when the user describes a task they want to delegate to a subagent and needs help with persona design, activation routing, tool access, output format, or composability."
+description: "Guide the creation of well-structured Claude Code plugin agents (subagents). Covers persona design, activation routing, tool access scoping, output format, and composability with other agents and skills."
+when_to_use: "Use when the user wants to create a new agent, design a subagent, write agent markdown, define agent frontmatter, or asks how to structure an agent for a plugin. Also use when the user describes a task they want to delegate to a subagent and needs help with persona design, activation routing, tool access, output format, or composability."
 allowed-tools:
   - Read
   - Write

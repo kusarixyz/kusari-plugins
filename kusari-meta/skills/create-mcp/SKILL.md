@@ -1,6 +1,7 @@
 ---
 name: create-mcp
-description: Build MCP servers from use case through deployment. Use when the user wants to build an MCP server, create an MCP integration, wrap an API for Claude, expose tools to an LLM, connect a service to Claude Desktop, make a Claude connector, or discusses anything involving the Model Context Protocol. Interrogates the use case, picks deployment model (remote HTTP or local stdio), selects tool design pattern, picks framework, scaffolds the server, and guides through testing.
+description: Build MCP servers from use case through deployment. Interrogates the use case, picks deployment model (remote HTTP or local stdio), selects tool design pattern, picks framework, scaffolds the server, and guides through testing.
+when_to_use: Use when the user wants to build an MCP server, create an MCP integration, wrap an API for Claude, expose tools to an LLM, connect a service to Claude Desktop, make a Claude connector, or discusses anything involving the Model Context Protocol.
 allowed-tools:
   - Read
   - Write
