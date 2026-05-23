@@ -1,6 +1,7 @@
 ---
 name: create-skill
-description: Guide the creation of well-structured Claude Code plugin skills. Use when the user wants to create a new skill, design a skill from scratch, write a SKILL.md, or asks how to structure a skill for a plugin. Also use when the user describes a capability or workflow they want to encode as a skill and needs help with structure, specificity, file organization, or best practices.
+description: Guide the creation of well-structured Claude Code plugin skills. Classifies the skill (capability, process, or hybrid), designs frontmatter and sections, and produces a complete SKILL.md plus references with structure calibrated to the skill type.
+when_to_use: Use when the user wants to create a new skill, design a skill from scratch, write a SKILL.md, or asks how to structure a skill for a plugin. Also use when the user describes a capability or workflow they want to encode as a skill and needs help with structure, specificity, file organization, or best practices.
 allowed-tools:
   - Read
   - Write
@@ -111,15 +112,17 @@ Wait for the user to confirm or correct before proceeding.
 
 ### 2.1 Frontmatter
 
-Draft the YAML frontmatter. Only `name` is required. `description` is strongly recommended.
+Draft the YAML frontmatter. All fields are optional. `description` is strongly recommended so Claude knows when to apply the skill.
 
 #### Core fields
 
 | Field | Type | Default | Purpose |
 |---|---|---|---|
-| `name` | String | Directory name | Display name and `/slash-command`. Lowercase letters, numbers, hyphens. Max 64 chars. Match the directory name. |
-| `description` | String | First paragraph of content | What the skill does and when to use it. Front-load the key use case. Truncated at 1,536 characters in the skill listing. |
+| `name` | String | Directory name | Display name and `/slash-command`. Lowercase letters, numbers, hyphens. Max 64 chars. If omitted, uses the directory name. |
+| `description` | String | First paragraph of content | What the skill does and when to use it. Front-load the key use case. The combined `description` + `when_to_use` text is truncated at 1,536 characters in the skill listing. |
+| `when_to_use` | String | None | Additional trigger context appended to `description` in the skill listing. Use for trigger phrases or example requests when `description` is already dense. Counts toward the 1,536-character cap. |
 | `argument-hint` | String | None | Hint shown during autocomplete. Example: `[issue-number]` or `[filename] [format]`. |
+| `arguments` | String/List | None | Named positional arguments enabling `$name` substitution in skill content. Space-separated string or YAML list. Names map to positions in order: `arguments: [issue, branch]` makes `$issue` the first argument and `$branch` the second. |
 
 #### Invocation control
 

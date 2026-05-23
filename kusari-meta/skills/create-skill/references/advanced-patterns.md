@@ -11,7 +11,9 @@ Skills support dynamic value substitution in the markdown content:
 | `$ARGUMENTS` | Full argument string passed when invoking the skill |
 | `$ARGUMENTS[N]` | Specific argument by 0-based index |
 | `$N` | Shorthand for `$ARGUMENTS[N]` (`$0` = first, `$1` = second) |
+| `$name` | Named argument declared in the `arguments` frontmatter field. With `arguments: [issue, branch]`, `$issue` expands to the first argument and `$branch` to the second |
 | `${CLAUDE_SESSION_ID}` | Current session ID. Useful for session-specific file names or logging |
+| `${CLAUDE_EFFORT}` | Current effort level (`low`, `medium`, `high`, `xhigh`, `max`). Use to adapt skill instructions to the active effort setting |
 | `${CLAUDE_SKILL_DIR}` | Directory containing the skill's SKILL.md. Use to reference bundled scripts and assets portably |
 
 Indexed arguments use shell-style quoting. Multi-word values must be wrapped in quotes to pass as a single argument:
